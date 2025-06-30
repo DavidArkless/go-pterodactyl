@@ -10,6 +10,9 @@ import (
 	"github.com/davidarkless/go-pterodactyl"
 )
 
+// main verifies the Pterodactyl panel setup by listing all nodes and their allocations using API credentials from environment variables.
+// 
+// The function retrieves the panel base URL and API key from the environment, initializes an API client, and fetches all configured nodes. For each node, it lists all associated allocations, displaying their details in a formatted output. If required environment variables are missing or critical API calls fail, the program logs a fatal error and exits. Allocation listing errors for individual nodes are logged as warnings, allowing the process to continue for other nodes.
 func main() {
 	baseURL := os.Getenv("PTERO_BASE_URL")
 	apiKey := os.Getenv("PTERO_API_KEY")

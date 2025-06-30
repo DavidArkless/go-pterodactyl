@@ -13,9 +13,12 @@ import (
 
 // ptr is a tiny helper that returns a pointer to the value passed in. This is
 // handy when a struct field is defined as *string or *bool but you have a
-// literal.
+// ptr returns a pointer to the given value. Useful for creating pointers to literals or temporary values.
 func ptr[T any](v T) *T { return &v }
 
+// main creates a new server on a Pterodactyl panel using environment variables for configuration, then polls until the server is installed or a timeout occurs.
+// 
+// The function reads required environment variables, initializes the Pterodactyl client, constructs server creation options, and submits a server creation request. It then periodically checks the server's installation status, printing progress and exiting when the server is ready or if a timeout is reached. Fatal errors are logged and terminate execution.
 func main() {
 
 	baseURL := os.Getenv("PTERO_BASE_URL")

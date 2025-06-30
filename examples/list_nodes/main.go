@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+// main is the entry point of the program that lists all nodes from a Pterodactyl panel using environment-provided credentials.
+// It initializes the API client, retrieves all nodes, and prints their details to standard output. The program exits with an error if required environment variables are missing or if API operations fail.
 func main() {
 
 	baseURL := os.Getenv("PTERO_BASE_URL")
